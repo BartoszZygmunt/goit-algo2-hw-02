@@ -45,3 +45,77 @@ print(result)  # {"print_order": ["A", "B"], "total_time": 50}
 Run the built-in test function to validate same/mixed priorities and constraint handling.
 
 **Requirements:** Python 3.7+ (optional: mypy for static type checks)
+
+# TASK 2 - Optimal Rod Cutting for Maximum Profit
+
+Greedy-free dynamic solution to the rod cutting problem. Implements two DP approaches:
+
+- **Memoization (top-down)**
+- **Tabulation (bottom-up)**
+
+## Overview
+
+Given a rod length and a list of prices (`prices[i]` is price for length `i+1`), compute:
+
+- Maximum profit
+- Cutting strategy (list of segment lengths)
+- Number of cuts
+
+## Input
+
+```python
+length = 5
+prices = [2, 5, 7, 8, 10]
+```
+
+Output (example)
+json
+Copy
+Edit
+{
+"max_profit": 12,
+"cuts": [2,2,1], # or [1,2,2] depending on method
+"number_of_cuts": 2
+}
+Usage
+Call the two functions:
+
+python
+Copy
+Edit
+from your_module import rod_cutting_memo, rod_cutting_table
+
+memo = rod_cutting_memo(5, [2,5,7,8,10])
+table = rod_cutting_table(5, [2,5,7,8,10])
+print(memo, table)
+Run built-in tests:
+
+bash
+Copy
+Edit
+python your_script.py
+Functions
+rod_cutting_memo(length: int, prices: List[int]) -> Dict
+Top-down DP with memoization.
+
+rod_cutting_table(length: int, prices: List[int]) -> Dict
+Bottom-up tabulation.
+
+Each returns:
+
+max_profit: int
+
+cuts: List[int]
+
+number_of_cuts: int
+
+Expected Test Cases
+Base case (e.g., length=5): profit 12, cuts [1,2,2] or [2,2,1]
+
+No cut optimal
+
+All unit cuts
+
+Requirements
+Python 3.7+
+(Optional) use mypy or linters for type hints.
